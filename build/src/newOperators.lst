@@ -1,0 +1,329 @@
+GAS LISTING /tmp/cc52mmKk.s 			page 1
+
+
+   1              		.file	"newOperators.cpp"
+   2              		.option pic
+   3              		.option norelax
+   4              		.text
+   5              	.Ltext0:
+   6              		.align	2
+   7              		.globl	_Znwm
+   9              	_Znwm:
+  10              	.LFB0:
+  11              		.file 1 "src/newOperators.cpp"
+   1:src/newOperators.cpp **** 
+   2:src/newOperators.cpp **** #include "../lib/mem.h"
+   3:src/newOperators.cpp **** #include "../h/syscall_c.h"
+   4:src/newOperators.cpp **** 
+   5:src/newOperators.cpp **** //Overloading new and delete operators
+   6:src/newOperators.cpp **** 
+   7:src/newOperators.cpp **** void* operator new (size_t size){
+  12              		.loc 1 7 33
+  13              		.cfi_startproc
+  14              	.LVL0:
+  15 0000 130101FF 		addi	sp,sp,-16
+  16              		.cfi_def_cfa_offset 16
+  17 0004 23341100 		sd	ra,8(sp)
+  18 0008 23308100 		sd	s0,0(sp)
+  19              		.cfi_offset 1, -8
+  20              		.cfi_offset 8, -16
+  21 000c 13040101 		addi	s0,sp,16
+  22              		.cfi_def_cfa 8, 0
+   8:src/newOperators.cpp ****     return mem_alloc(size);
+  23              		.loc 1 8 5
+  24              		.loc 1 8 21 is_stmt 0
+  25 0010 97000000 		call	_Z9mem_allocm@plt
+  25      E7800000 
+  26              	.LVL1:
+   9:src/newOperators.cpp **** }
+  27              		.loc 1 9 1
+  28 0018 83308100 		ld	ra,8(sp)
+  29              		.cfi_restore 1
+  30 001c 03340100 		ld	s0,0(sp)
+  31              		.cfi_restore 8
+  32              		.cfi_def_cfa 2, 16
+  33 0020 13010101 		addi	sp,sp,16
+  34              		.cfi_def_cfa_offset 0
+  35 0024 67800000 		jr	ra
+  36              		.cfi_endproc
+  37              	.LFE0:
+  39              		.align	2
+  40              		.globl	_ZdlPv
+  42              	_ZdlPv:
+  43              	.LFB1:
+  10:src/newOperators.cpp **** 
+  11:src/newOperators.cpp **** void operator delete (void* arg) noexcept{
+  44              		.loc 1 11 42 is_stmt 1
+  45              		.cfi_startproc
+  46              		.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+  47              		.cfi_lsda 0x1b,.LLSDA1
+  48              	.LVL2:
+GAS LISTING /tmp/cc52mmKk.s 			page 2
+
+
+  49 0028 130101FF 		addi	sp,sp,-16
+  50              		.cfi_def_cfa_offset 16
+  51 002c 23341100 		sd	ra,8(sp)
+  52 0030 23308100 		sd	s0,0(sp)
+  53              		.cfi_offset 1, -8
+  54              		.cfi_offset 8, -16
+  55 0034 13040101 		addi	s0,sp,16
+  56              		.cfi_def_cfa 8, 0
+  12:src/newOperators.cpp ****     mem_free(arg);
+  57              		.loc 1 12 5
+  58              		.loc 1 12 13 is_stmt 0
+  59 0038 97000000 		call	_Z8mem_freePv@plt
+  59      E7800000 
+  60              	.LVL3:
+  13:src/newOperators.cpp **** }
+  61              		.loc 1 13 1
+  62 0040 83308100 		ld	ra,8(sp)
+  63              		.cfi_restore 1
+  64 0044 03340100 		ld	s0,0(sp)
+  65              		.cfi_restore 8
+  66              		.cfi_def_cfa 2, 16
+  67 0048 13010101 		addi	sp,sp,16
+  68              		.cfi_def_cfa_offset 0
+  69 004c 67800000 		jr	ra
+  70              		.cfi_endproc
+  71              	.LFE1:
+  72              		.globl	__gxx_personality_v0
+  73              		.section	.gcc_except_table,"a",@progbits
+  74              	.LLSDA1:
+  75 0000 FF       		.byte	0xff
+  76 0001 FF       		.byte	0xff
+  77 0002 03       		.byte	0x3
+  78 0003 00       		.byte	0
+  79              		.text
+  81              		.align	2
+  82              		.globl	_Znam
+  84              	_Znam:
+  85              	.LFB2:
+  14:src/newOperators.cpp **** 
+  15:src/newOperators.cpp **** void *operator new[](size_t size) {
+  86              		.loc 1 15 35 is_stmt 1
+  87              		.cfi_startproc
+  88              	.LVL4:
+  89 0050 130101FF 		addi	sp,sp,-16
+  90              		.cfi_def_cfa_offset 16
+  91 0054 23341100 		sd	ra,8(sp)
+  92 0058 23308100 		sd	s0,0(sp)
+  93              		.cfi_offset 1, -8
+  94              		.cfi_offset 8, -16
+  95 005c 13040101 		addi	s0,sp,16
+  96              		.cfi_def_cfa 8, 0
+  16:src/newOperators.cpp ****     return mem_alloc(size);
+  97              		.loc 1 16 5
+  98              		.loc 1 16 21 is_stmt 0
+  99 0060 97000000 		call	_Z9mem_allocm@plt
+  99      E7800000 
+ 100              	.LVL5:
+GAS LISTING /tmp/cc52mmKk.s 			page 3
+
+
+  17:src/newOperators.cpp **** }
+ 101              		.loc 1 17 1
+ 102 0068 83308100 		ld	ra,8(sp)
+ 103              		.cfi_restore 1
+ 104 006c 03340100 		ld	s0,0(sp)
+ 105              		.cfi_restore 8
+ 106              		.cfi_def_cfa 2, 16
+ 107 0070 13010101 		addi	sp,sp,16
+ 108              		.cfi_def_cfa_offset 0
+ 109 0074 67800000 		jr	ra
+ 110              		.cfi_endproc
+ 111              	.LFE2:
+ 113              		.align	2
+ 114              		.globl	_ZdaPv
+ 116              	_ZdaPv:
+ 117              	.LFB3:
+  18:src/newOperators.cpp **** 
+  19:src/newOperators.cpp **** void operator delete[](void *arg) noexcept {
+ 118              		.loc 1 19 44 is_stmt 1
+ 119              		.cfi_startproc
+ 120              		.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+ 121              		.cfi_lsda 0x1b,.LLSDA3
+ 122              	.LVL6:
+ 123 0078 130101FF 		addi	sp,sp,-16
+ 124              		.cfi_def_cfa_offset 16
+ 125 007c 23341100 		sd	ra,8(sp)
+ 126 0080 23308100 		sd	s0,0(sp)
+ 127              		.cfi_offset 1, -8
+ 128              		.cfi_offset 8, -16
+ 129 0084 13040101 		addi	s0,sp,16
+ 130              		.cfi_def_cfa 8, 0
+  20:src/newOperators.cpp ****     mem_free(arg);
+ 131              		.loc 1 20 5
+ 132              		.loc 1 20 13 is_stmt 0
+ 133 0088 97000000 		call	_Z8mem_freePv@plt
+ 133      E7800000 
+ 134              	.LVL7:
+  21:src/newOperators.cpp **** }
+ 135              		.loc 1 21 1
+ 136 0090 83308100 		ld	ra,8(sp)
+ 137              		.cfi_restore 1
+ 138 0094 03340100 		ld	s0,0(sp)
+ 139              		.cfi_restore 8
+ 140              		.cfi_def_cfa 2, 16
+ 141 0098 13010101 		addi	sp,sp,16
+ 142              		.cfi_def_cfa_offset 0
+ 143 009c 67800000 		jr	ra
+ 144              		.cfi_endproc
+ 145              	.LFE3:
+ 146              		.section	.gcc_except_table
+ 147              	.LLSDA3:
+ 148 0004 FF       		.byte	0xff
+ 149 0005 FF       		.byte	0xff
+ 150 0006 03       		.byte	0x3
+ 151 0007 00       		.byte	0
+ 152              		.text
+ 154              	.Letext0:
+GAS LISTING /tmp/cc52mmKk.s 			page 4
+
+
+ 155              		.file 2 "src/../lib/hw.h"
+ 156              		.file 3 "src/../h/syscall_c.h"
+ 855              		.align	3
+ 858              	DW.ref.__gxx_personality_v0:
+ 859 0000 00000000 		.dword	__gxx_personality_v0
+ 859      00000000 
+ 860              		.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04) 9.4.0"
+ 861              		.section	.note.GNU-stack,"",@progbits
+GAS LISTING /tmp/cc52mmKk.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 newOperators.cpp
+     /tmp/cc52mmKk.s:9      .text:0000000000000000 _Znwm
+     /tmp/cc52mmKk.s:13     .text:0000000000000000 .L0 
+     /tmp/cc52mmKk.s:15     .text:0000000000000000 .L0 
+     /tmp/cc52mmKk.s:16     .text:0000000000000004 .L0 
+     /tmp/cc52mmKk.s:19     .text:000000000000000c .L0 
+     /tmp/cc52mmKk.s:20     .text:000000000000000c .L0 
+     /tmp/cc52mmKk.s:22     .text:0000000000000010 .L0 
+     /tmp/cc52mmKk.s:24     .text:0000000000000010 .L0 
+     /tmp/cc52mmKk.s:25     .text:0000000000000010 .L0 
+     /tmp/cc52mmKk.s:28     .text:0000000000000018 .L0 
+     /tmp/cc52mmKk.s:29     .text:000000000000001c .L0 
+     /tmp/cc52mmKk.s:31     .text:0000000000000020 .L0 
+     /tmp/cc52mmKk.s:32     .text:0000000000000020 .L0 
+     /tmp/cc52mmKk.s:34     .text:0000000000000024 .L0 
+     /tmp/cc52mmKk.s:36     .text:0000000000000028 .L0 
+     /tmp/cc52mmKk.s:42     .text:0000000000000028 _ZdlPv
+     /tmp/cc52mmKk.s:45     .text:0000000000000028 .L0 
+     /tmp/cc52mmKk.s:858    .data.rel.local.DW.ref.__gxx_personality_v0:0000000000000000 DW.ref.__gxx_personality_v0
+     /tmp/cc52mmKk.s:49     .text:0000000000000028 .L0 
+     /tmp/cc52mmKk.s:50     .text:000000000000002c .L0 
+     /tmp/cc52mmKk.s:53     .text:0000000000000034 .L0 
+     /tmp/cc52mmKk.s:54     .text:0000000000000034 .L0 
+     /tmp/cc52mmKk.s:56     .text:0000000000000038 .L0 
+     /tmp/cc52mmKk.s:58     .text:0000000000000038 .L0 
+     /tmp/cc52mmKk.s:59     .text:0000000000000038 .L0 
+     /tmp/cc52mmKk.s:62     .text:0000000000000040 .L0 
+     /tmp/cc52mmKk.s:63     .text:0000000000000044 .L0 
+     /tmp/cc52mmKk.s:65     .text:0000000000000048 .L0 
+     /tmp/cc52mmKk.s:66     .text:0000000000000048 .L0 
+     /tmp/cc52mmKk.s:68     .text:000000000000004c .L0 
+     /tmp/cc52mmKk.s:70     .text:0000000000000050 .L0 
+     /tmp/cc52mmKk.s:84     .text:0000000000000050 _Znam
+     /tmp/cc52mmKk.s:87     .text:0000000000000050 .L0 
+     /tmp/cc52mmKk.s:89     .text:0000000000000050 .L0 
+     /tmp/cc52mmKk.s:90     .text:0000000000000054 .L0 
+     /tmp/cc52mmKk.s:93     .text:000000000000005c .L0 
+     /tmp/cc52mmKk.s:94     .text:000000000000005c .L0 
+     /tmp/cc52mmKk.s:96     .text:0000000000000060 .L0 
+     /tmp/cc52mmKk.s:98     .text:0000000000000060 .L0 
+     /tmp/cc52mmKk.s:99     .text:0000000000000060 .L0 
+     /tmp/cc52mmKk.s:102    .text:0000000000000068 .L0 
+     /tmp/cc52mmKk.s:103    .text:000000000000006c .L0 
+     /tmp/cc52mmKk.s:105    .text:0000000000000070 .L0 
+     /tmp/cc52mmKk.s:106    .text:0000000000000070 .L0 
+     /tmp/cc52mmKk.s:108    .text:0000000000000074 .L0 
+     /tmp/cc52mmKk.s:110    .text:0000000000000078 .L0 
+     /tmp/cc52mmKk.s:116    .text:0000000000000078 _ZdaPv
+     /tmp/cc52mmKk.s:119    .text:0000000000000078 .L0 
+     /tmp/cc52mmKk.s:123    .text:0000000000000078 .L0 
+     /tmp/cc52mmKk.s:124    .text:000000000000007c .L0 
+     /tmp/cc52mmKk.s:127    .text:0000000000000084 .L0 
+     /tmp/cc52mmKk.s:128    .text:0000000000000084 .L0 
+     /tmp/cc52mmKk.s:130    .text:0000000000000088 .L0 
+     /tmp/cc52mmKk.s:132    .text:0000000000000088 .L0 
+     /tmp/cc52mmKk.s:133    .text:0000000000000088 .L0 
+GAS LISTING /tmp/cc52mmKk.s 			page 6
+
+
+     /tmp/cc52mmKk.s:136    .text:0000000000000090 .L0 
+     /tmp/cc52mmKk.s:137    .text:0000000000000094 .L0 
+     /tmp/cc52mmKk.s:139    .text:0000000000000098 .L0 
+     /tmp/cc52mmKk.s:140    .text:0000000000000098 .L0 
+     /tmp/cc52mmKk.s:142    .text:000000000000009c .L0 
+     /tmp/cc52mmKk.s:144    .text:00000000000000a0 .L0 
+     /tmp/cc52mmKk.s:157    .text:00000000000000a0 .L0 
+     /tmp/cc52mmKk.s:430    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/cc52mmKk.s:834    .debug_str:0000000000000176 .LASF30
+     /tmp/cc52mmKk.s:800    .debug_str:0000000000000058 .LASF31
+     /tmp/cc52mmKk.s:804    .debug_str:000000000000007f .LASF32
+     /tmp/cc52mmKk.s:5      .text:0000000000000000 .Ltext0
+     /tmp/cc52mmKk.s:154    .text:00000000000000a0 .Letext0
+     /tmp/cc52mmKk.s:784    .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/cc52mmKk.s:790    .debug_str:0000000000000017 .LASF0
+     /tmp/cc52mmKk.s:832    .debug_str:0000000000000163 .LASF1
+     /tmp/cc52mmKk.s:812    .debug_str:00000000000000c8 .LASF2
+     /tmp/cc52mmKk.s:808    .debug_str:00000000000000b5 .LASF4
+     /tmp/cc52mmKk.s:802    .debug_str:000000000000006d .LASF3
+     /tmp/cc52mmKk.s:796    .debug_str:0000000000000041 .LASF5
+     /tmp/cc52mmKk.s:806    .debug_str:00000000000000a2 .LASF6
+     /tmp/cc52mmKk.s:830    .debug_str:0000000000000150 .LASF7
+     /tmp/cc52mmKk.s:844    .debug_str:000000000000025b .LASF8
+     /tmp/cc52mmKk.s:792    .debug_str:0000000000000024 .LASF9
+     /tmp/cc52mmKk.s:794    .debug_str:0000000000000032 .LASF10
+     /tmp/cc52mmKk.s:836    .debug_str:000000000000023a .LASF11
+     /tmp/cc52mmKk.s:798    .debug_str:0000000000000048 .LASF12
+     /tmp/cc52mmKk.s:848    .debug_str:0000000000000275 .LASF13
+     /tmp/cc52mmKk.s:810    .debug_str:00000000000000bc .LASF14
+     /tmp/cc52mmKk.s:824    .debug_str:0000000000000126 .LASF15
+     /tmp/cc52mmKk.s:818    .debug_str:00000000000000f2 .LASF16
+     /tmp/cc52mmKk.s:816    .debug_str:00000000000000df .LASF18
+     /tmp/cc52mmKk.s:838    .debug_str:0000000000000249 .LASF20
+     /tmp/cc52mmKk.s:117    .text:0000000000000078 .LFB3
+     /tmp/cc52mmKk.s:145    .text:00000000000000a0 .LFE3
+     /tmp/cc52mmKk.s:715    .debug_loc:0000000000000000 .LLST3
+     /tmp/cc52mmKk.s:134    .text:0000000000000090 .LVL7
+     /tmp/cc52mmKk.s:786    .debug_str:0000000000000000 .LASF22
+     /tmp/cc52mmKk.s:826    .debug_str:000000000000013c .LASF24
+     /tmp/cc52mmKk.s:85     .text:0000000000000050 .LFB2
+     /tmp/cc52mmKk.s:111    .text:0000000000000078 .LFE2
+     /tmp/cc52mmKk.s:840    .debug_str:0000000000000250 .LASF17
+     /tmp/cc52mmKk.s:729    .debug_loc:0000000000000039 .LLST2
+     /tmp/cc52mmKk.s:100    .text:0000000000000068 .LVL5
+     /tmp/cc52mmKk.s:820    .debug_str:0000000000000108 .LASF19
+     /tmp/cc52mmKk.s:788    .debug_str:0000000000000010 .LASF21
+     /tmp/cc52mmKk.s:43     .text:0000000000000028 .LFB1
+     /tmp/cc52mmKk.s:71     .text:0000000000000050 .LFE1
+     /tmp/cc52mmKk.s:743    .debug_loc:0000000000000072 .LLST1
+     /tmp/cc52mmKk.s:60     .text:0000000000000040 .LVL3
+     /tmp/cc52mmKk.s:850    .debug_str:0000000000000285 .LASF23
+     /tmp/cc52mmKk.s:842    .debug_str:0000000000000255 .LASF25
+     /tmp/cc52mmKk.s:10     .text:0000000000000000 .LFB0
+     /tmp/cc52mmKk.s:37     .text:0000000000000028 .LFE0
+     /tmp/cc52mmKk.s:757    .debug_loc:00000000000000ab .LLST0
+     /tmp/cc52mmKk.s:26     .text:0000000000000018 .LVL1
+     /tmp/cc52mmKk.s:822    .debug_str:0000000000000118 .LASF26
+GAS LISTING /tmp/cc52mmKk.s 			page 7
+
+
+     /tmp/cc52mmKk.s:814    .debug_str:00000000000000d6 .LASF28
+     /tmp/cc52mmKk.s:828    .debug_str:0000000000000142 .LASF27
+     /tmp/cc52mmKk.s:846    .debug_str:000000000000026b .LASF29
+     /tmp/cc52mmKk.s:122    .text:0000000000000078 .LVL6
+     /tmp/cc52mmKk.s:88     .text:0000000000000050 .LVL4
+     /tmp/cc52mmKk.s:48     .text:0000000000000028 .LVL2
+     /tmp/cc52mmKk.s:14     .text:0000000000000000 .LVL0
+     /tmp/cc52mmKk.s:158    .debug_info:0000000000000000 .Ldebug_info0
+     /tmp/cc52mmKk.s:74     .gcc_except_table:0000000000000000 .LLSDA1
+     /tmp/cc52mmKk.s:147    .gcc_except_table:0000000000000004 .LLSDA3
+
+UNDEFINED SYMBOLS
+_Z9mem_allocm
+_Z8mem_freePv
+__gxx_personality_v0

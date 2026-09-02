@@ -1,0 +1,20 @@
+
+#ifndef OPERATIONCODES_HPP
+#define OPERATIONCODES_HPP
+
+#define MEM_ALLOC 0x01
+#define MEM_FREE 0x02
+#define MEM_GET_FREE_SPACE 0x03
+#define MEM_GET_LARGEST_FREE_BLOCK 0x04
+#define THREAD_CREATE 0x11
+#define THREAD_EXIT 0x12
+#define THREAD_DISPATCH 0x13
+#define SEM_OPEN 0x21
+#define SEM_CLOSE 0x22
+#define SEM_WAIT 0x23
+#define SEM_SIGNAL 0x24
+#define TIME_SLEEP 0x31
+#define GETC 0x41
+#define PUTC 0x42
+
+#endif
